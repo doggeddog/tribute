@@ -17,6 +17,7 @@
 .tribute-container li {
   padding: 5px 5px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .tribute-container li.highlight {
   background: #ddd;
