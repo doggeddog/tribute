@@ -84,7 +84,7 @@ class TributeEvents {
     if (tribute.menu && tribute.menu.contains(event.target)) {
       let li = event.target;
       event.preventDefault();
-      event.stopPropagation();
+      event.stopImmediatePropagation();
       while (li.nodeName.toLowerCase() !== "li") {
         li = li.parentNode;
         if (!li || li === tribute.menu) {
@@ -225,7 +225,7 @@ class TributeEvents {
         // choose selection
         if (this.tribute.isActive && this.tribute.current.filteredItems) {
           e.preventDefault();
-          e.stopPropagation();
+          e.stopImmediatePropagation();
           setTimeout(() => {
             this.tribute.selectItemAtIndex(this.tribute.menuSelected, e);
             this.tribute.hideMenu();
@@ -235,7 +235,7 @@ class TributeEvents {
       escape: (e, el) => {
         if (this.tribute.isActive) {
           e.preventDefault();
-          e.stopPropagation();
+          e.stopImmediatePropagation();
           this.tribute.isActive = false;
           this.tribute.hideMenu();
         }
@@ -249,7 +249,7 @@ class TributeEvents {
           if (this.tribute.spaceSelectsMatch) {
             this.callbacks().enter(e, el);
           } else if (!this.tribute.allowSpaces) {
-            e.stopPropagation();
+            e.stopImmediatePropagation();
             setTimeout(() => {
               this.tribute.hideMenu();
               this.tribute.isActive = false;
@@ -261,7 +261,7 @@ class TributeEvents {
         // navigate up ul
         if (this.tribute.isActive && this.tribute.current.filteredItems) {
           e.preventDefault();
-          e.stopPropagation();
+          e.stopImmediatePropagation();
           let count = this.tribute.current.filteredItems.length,
             selected = this.tribute.menuSelected;
 
@@ -279,7 +279,7 @@ class TributeEvents {
         // navigate down ul
         if (this.tribute.isActive && this.tribute.current.filteredItems) {
           e.preventDefault();
-          e.stopPropagation();
+          e.stopImmediatePropagation();
           let count = this.tribute.current.filteredItems.length - 1,
             selected = this.tribute.menuSelected;
 
